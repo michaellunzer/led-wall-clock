@@ -13,7 +13,7 @@ class Display(threading.Thread):
         self._dimmer = dimmer
 
         # Configure LED matrix driver
-        self._matrix = RGBMatrix(32, 2, 1)
+        self._matrix = RGBMatrix(16, 1, 1)
         self._matrix.pwmBits = 11
         self._matrix.brightness = 25
 
@@ -33,22 +33,22 @@ class Display(threading.Thread):
     def _draw(self, canvas):
         canvas.Clear()
 
-        graphics.DrawText(canvas, self._font_large, 1, 13, self._white, time.strftime("%-2I:%M"))
-        graphics.DrawText(canvas, self._font_small, 53, 13, self._white, time.strftime("%p"))
+        graphics.DrawText(canvas, self._font_small, 0, 7, self._red, time.strftime("%-2I:%M"))
+        graphics.DrawText(canvas, self._font_small, 21, 16, self._white, time.strftime("%p"))
 
-        graphics.DrawText(canvas, self._font_small, 2, 22, self._white, time.strftime("%a %b %-d"))
+        # graphics.DrawText(canvas, self._font_small, 2, 22, self._white, time.strftime("%a %b %-d"))
 
-        temp_str = "%3.0f" % self._weather.cur_temp
-        graphics.DrawText(canvas, self._font_small, 0, 31, self._white, temp_str)
-        graphics.DrawText(canvas, self._font_tiny, 18, 31, self._white, "F")
+        # temp_str = "%3.0f" % self._weather.cur_temp
+        # graphics.DrawText(canvas, self._font_small, 0, 31, self._white, temp_str)
+        # graphics.DrawText(canvas, self._font_tiny, 18, 31, self._white, "F")
 
-        hi_str = "%3.0f" % self._weather.high_temp
-        graphics.DrawText(canvas, self._font_small, 22, 31, self._white, hi_str)
-        graphics.DrawText(canvas, self._font_tiny, 40, 31, self._red, "F")
+        # hi_str = "%3.0f" % self._weather.high_temp
+        # graphics.DrawText(canvas, self._font_small, 22, 31, self._white, hi_str)
+        # graphics.DrawText(canvas, self._font_tiny, 40, 31, self._red, "F")
 
-        low_str = "%3.0f" % self._weather.low_temp
-        graphics.DrawText(canvas, self._font_small, 43, 31, self._white, low_str)
-        graphics.DrawText(canvas, self._font_tiny, 61, 31, self._blue, "F")
+        # low_str = "%3.0f" % self._weather.low_temp
+        # graphics.DrawText(canvas, self._font_small, 43, 31, self._white, low_str)
+        # graphics.DrawText(canvas, self._font_tiny, 61, 31, self._blue, "F")
 
     def run(self):
         canvas = self._matrix.CreateFrameCanvas()
@@ -57,4 +57,4 @@ class Display(threading.Thread):
             self._draw(canvas)
             time.sleep(0.05)
             canvas = self._matrix.SwapOnVSync(canvas)
-            self._matrix.brightness = self._dimmer.brightness
+            #self._matrix.brightness = self._dimmer.brightness
