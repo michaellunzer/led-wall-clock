@@ -43,8 +43,8 @@ def process_args():
     parser.add_argument("-p", "--pidfile", help="PID file name", type=str, default="/var/run/ledclock.pid")
     parser.add_argument("-l", "--logfile", help="Log file name", type=str, default="/var/log/ledclock.log")
     parser.add_argument("-d", "--daemon", help="start stop restart", type=str)
-    parser.add_argument("-s", "--station", help="NOAA station ID for current weather conditions", default="KLOU")
-    parser.add_argument("-z", "--zip", help="ZIP code for weather forecast", default="40207")
+    parser.add_argument("-s", "--station", help="NOAA station ID for current weather conditions", default="KSFO")
+    parser.add_argument("-z", "--zip", help="ZIP code for weather forecast", default="94062")
 
     return vars(parser.parse_args())
 
