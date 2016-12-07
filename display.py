@@ -33,8 +33,8 @@ class Display(threading.Thread):
     def _draw(self, canvas):
         canvas.Clear()
 
-        graphics.DrawText(canvas, self._font_small, 0, 7, self._red, time.strftime("%-2I:%M"))
-        graphics.DrawText(canvas, self._font_small, 21, 16, self._white, time.strftime("%p"))
+        graphics.DrawText(canvas, self._font_small, -6, 7, self._red, time.strftime("%-2I:%M"))
+        graphics.DrawText(canvas, self._font_small, 21, 13, self._white, time.strftime("%P"))
 
         # graphics.DrawText(canvas, self._font_small, 2, 22, self._white, time.strftime("%a %b %-d"))
 
@@ -57,4 +57,4 @@ class Display(threading.Thread):
             self._draw(canvas)
             time.sleep(0.05)
             canvas = self._matrix.SwapOnVSync(canvas)
-            #self._matrix.brightness = self._dimmer.brightness
+            self._matrix.brightness = self._dimmer.brightness
