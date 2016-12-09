@@ -33,6 +33,6 @@ class Weather(object):
         forecast_req = requests.get(FORECAST_URL, params={'zipCodeList': self._zip, 'format': '24 hourly', 'numDays': 1})
         if forecast_req.ok:
             forecast = ElementTree.fromstring(forecast_req.content)
-            self.high_temp = float(forecast.find(".//temperature[@type='maximum']/value[1]").text)
-            self.low_temp = float(forecast.find(".//temperature[@type='minimum']/value[1]").text)
-            logging.info("High temperature %1.1f, Low temperature %1.1f" % (self.high_temp, self.low_temp))
+            #self.high_temp = float(forecast.find(".//temperature[@type='maximum']/value[1]").text)
+            #self.low_temp = float(forecast.find(".//temperature[@type='minimum']/value[1]").text)
+            #logging.info("High temperature %1.1f, Low temperature %1.1f" % (self.high_temp, self.low_temp))
