@@ -1,0 +1,11 @@
+# This is a backup copy for github purposes. This folder should be copied to /etc/supervisor
+#
+# Start here: https://serversforhackers.com/monitoring-processes-with-supervisord
+#
+# DO NOT forget to update /etc/init.d/supervisor to run on boot
+# http://www.stuffaboutcode.com/2012/06/raspberry-pi-run-program-at-start-up.html
+# https://gist.github.com/howthebodyworks/176149
+#
+#
+#
+
