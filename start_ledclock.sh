@@ -1,9 +1,9 @@
 #!/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/led-wall-clock
 
-sleep 5
 echo "loading ledclock.py ... please wait"
 
-sudo python /root/led-wall-clock/ledclock.py -d start
+sudo python /root/led-wall-clock/ledclock.py -d start &
 
 
 echo "should be running"
