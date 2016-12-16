@@ -25,14 +25,6 @@ import smbus
 import time
 
 import RPi.GPIO as GPIO
-import time
-import os
-import string
-import sys
-import subprocess
-import re
-
-import ephem
 import logging
 
 
@@ -203,24 +195,15 @@ def RCtime (RCpin):
 
 class Dimmer(object):
     def __init__(self, scheduler):
-        # self._observer = ephem.Observer()
-        # self._observer.pressure = 0
-        # self._observer.horizon = '-6'
-        # self._observer.lat = '38.262469'
-        # self._observer.lon = '-85.648625'
 
-        self.brightness = 100
+        self.brightness = 10
 
         self.update()
 
-        # Run every 5 minutes
+        # Run every 3 seconds
         scheduler.add_job(self.update, 'cron', second='*/3')
 
     def update(self):
-        # self._observer.date = ephem.now()
-
-        # morning = self._observer.next_rising(ephem.Sun(), use_center=True)
-        # night = self._observer.next_setting(ephem.Sun(), use_center=True)
 
         if RCtime(2) > 150:
             # Morning is sooner, so it must be night
