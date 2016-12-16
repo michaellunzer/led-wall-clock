@@ -15,7 +15,7 @@ class Display(threading.Thread):
         # Configure LED matrix driver
         self._matrix = RGBMatrix(16, 1, 1)
         self._matrix.pwmBits = 11
-        self._matrix.brightness = 25
+        self._matrix.brightness = 10
 
         # Load fonts
         self._font_large = graphics.Font()
