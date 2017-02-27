@@ -4,7 +4,7 @@ A fancy RGB LED matrix wall clock controlled by a Raspberry Pi.
 ![picture](https://cloud.githubusercontent.com/assets/8151645/14007063/6deb76d6-f149-11e5-8a30-1efc0c79715d.jpg)
 
 # Parts List
-- [64x32 RGB LED Matrix - 5mm pitch](https://www.adafruit.com/products/2277)
+- [https://www.adafruit.com/product/420](https://www.adafruit.com/product/420)
 - [Adafruit RGB Matrix + Real Time Clock Hat](https://www.adafruit.com/product/2345)
 - Raspberry Pi 2 Model B
 - [Acrylic Mount Plate](http://www.ponoko.com/build-your-own/furniture/led-wall-clock-plate-13293#) ([with light sensor](http://www.ponoko.com/build-your-own/furniture/led-wall-clock-plate-rev2-13311))
@@ -15,6 +15,7 @@ Python libraries
 - requests
 - apscheduler
 - daemonify
+- Supervisor (to start program at boot)
 
 # RGB Matrix Hat Modification
 The brightness can be controlled by pulse-width-modulating the OE pin of the LED matrix.  Unfortunately, the hat does not have the PWM pin of the Raspberry Pi connected to the OE pin.  To correct this, jumper a wire between pins labeled 4 and 18 on the hat.
@@ -54,8 +55,23 @@ To start the clock as a daemon
 cd led-wall-clock
 sudo ./ledclock.py -d start
 ```
+
+# Starting at Boot
+I was having trouble running a python script at boot. I tried putting the path to the script in /etc/init.d and was having some problems.
+I tried cron -- it didn't work
+I tried calling it with a bash script -- didn't work either
+
+I thought maybe there were some permission issues with controlling the GPIO because the program was running, but not actually displaying anything on the display.
+
+I found [Supervisor](http://supervisord.org/) and used it to run the python scripts at boot. Also, it monitors the script, so if it crashes, they get restarted.
+
+Here is a good [tutorial](https://serversforhackers.com/monitoring-processes-with-supervisord)
+
+# Light Sensor
+
+I used an analog light sensor to adjust the screen brightness. This is updated every 3 seconds, because if there wasn't a delay, the screen would flicker whenever a shadow passed over the sensor. Now, it is more consistant and only changes when there is a noticible change - like turning off a light switch. 
+
 # To Do
 - Use a more generic weather API
 - Move configuration to a separate file
-- Implement dimming based on TSL2591 light sensor
 - Add forecast screen (toggle on a timer)
