@@ -7,10 +7,10 @@ sudo apt-get install python-dev -y
 sudo apt-get install -y supervisor
 
 git clone --recursive https://github.com/michaellunzer/led-wall-clock.git
-cd led-wall-clock/rpi-rgb-led-matrix/lib
+cd /root/led-wall-clock/rpi-rgb-led-matrix/lib
 
-sed -i -e 's/#DEFINES+=-DADAFRUIT_RGBMATRIX_HAT/DEFINES+=-DADAFRUIT_RGBMATRIX_HAT/g' /led-wall-clock/rpi-rgb-led-matrix/lib/Makefile
-sed -i -e 's/#DEFINES+=-DADAFRUIT_RGBMATRIX_HAT_PWM/DEFINES+=-DADAFRUIT_RGBMATRIX_HAT_PWM/g' /led-wall-clock/rpi-rgb-led-matrix/lib/Makefile
+sed -i -e 's/#DEFINES+=-DADAFRUIT_RGBMATRIX_HAT/DEFINES+=-DADAFRUIT_RGBMATRIX_HAT/g' /root/led-wall-clock/rpi-rgb-led-matrix/lib/Makefile
+sed -i -e 's/#DEFINES+=-DADAFRUIT_RGBMATRIX_HAT_PWM/DEFINES+=-DADAFRUIT_RGBMATRIX_HAT_PWM/g' /root/led-wall-clock/rpi-rgb-led-matrix/lib/Makefile
 
 make build-python
 sudo make install-python
