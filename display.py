@@ -2,8 +2,6 @@ import threading
 import time
 from rgbmatrix import graphics
 from rgbmatrix import RGBMatrix
-from PIL import Image
-from PIL import ImageDraw
 
 
 class Display(threading.Thread):
@@ -74,6 +72,9 @@ class Display(threading.Thread):
                 graphics.DrawCircle(canvas, 30, 1, 0, self._yellow) 
             
             elif cur_weather_str in ("Breezy", "A Few Clouds and Breezy", "A Few Clouds", "A Few Clouds and Windy", "Partly Cloudy and Breezy", "Partly Cloudy"):
+           
+        #Trying to get a quick animation to scroll across the screen -- work in progress!
+           
             #     x=1
             #     while x < 32:
             #         graphics.DrawCircle(canvas, x+1, 1, 3, self._white)
@@ -113,20 +114,20 @@ class Display(threading.Thread):
                 graphics.DrawCircle(canvas, 9, 1, 1, self._white)
 
 
-            # elif cur_weather_str in ("Fair", "Fair and Breezy", "Clear"):
+            elif cur_weather_str in ("Fair", "Fair and Breezy", "Clear"):
 
-            #     #CLOUDS
-            #     graphics.DrawCircle(canvas, 1, 1, 2, self._white)
-            #     graphics.DrawCircle(canvas, 5, 1, 4, self._white)
-            #     # graphics.DrawCircle(canvas, 5, 1, 3, self._white)
-            #     graphics.DrawCircle(canvas, 5, 1, 2, self._white)
-            #     graphics.DrawCircle(canvas, 4, 2, 2, self._white)
-            #     graphics.DrawCircle(canvas, 5, 1, 1, self._white)
-            #     graphics.DrawCircle(canvas, 5, 1, 0, self._white)        
-            #     graphics.DrawCircle(canvas, 5, 1, 2, self._white)
-            #     graphics.DrawCircle(canvas, 9, 1, 2, self._white)
-            #     # graphics.DrawCircle(canvas, 1, 1, 1, self._white)
-            #     graphics.DrawCircle(canvas, 9, 1, 1, self._white)  
+                #CLOUDS
+                graphics.DrawCircle(canvas, 1, 1, 2, self._white)
+                graphics.DrawCircle(canvas, 5, 1, 4, self._white)
+                # graphics.DrawCircle(canvas, 5, 1, 3, self._white)
+                graphics.DrawCircle(canvas, 5, 1, 2, self._white)
+                graphics.DrawCircle(canvas, 4, 2, 2, self._white)
+                graphics.DrawCircle(canvas, 5, 1, 1, self._white)
+                graphics.DrawCircle(canvas, 5, 1, 0, self._white)        
+                graphics.DrawCircle(canvas, 5, 1, 2, self._white)
+                graphics.DrawCircle(canvas, 9, 1, 2, self._white)
+                # graphics.DrawCircle(canvas, 1, 1, 1, self._white)
+                graphics.DrawCircle(canvas, 9, 1, 1, self._white)  
 
 
 
@@ -156,50 +157,15 @@ class Display(threading.Thread):
                 # graphics.DrawCircle(canvas, 1, 1, 1, self._white)
                 graphics.DrawCircle(canvas, 9, 1, 1, self._white) 
 
-    # , "Overcast", "Overcast and Breezy"
 
-            elif cur_weather_str == "Fair":
+
+            elif cur_weather_str in ("Overcast", "Overcast and Breezy"):
                 graphics.DrawLine(canvas, 1, 1, 32, 1, self._grey1)
                 graphics.DrawLine(canvas, 1, 2, 32, 2, self._grey2)
                 graphics.DrawLine(canvas, 1, 3, 32, 3, self._grey3)
                 graphics.DrawLine(canvas, 1, 4, 32, 4, self._grey4)
                 graphics.DrawLine(canvas, 1, 5, 32, 5, self._grey5)
                 graphics.DrawText(canvas, self._font_tiny, 1, 6, self._grey9, "OVERCAST")
-                # graphics.DrawLine(canvas, 1, 6, 32, 6, self._grey6)
-                # graphics.DrawLine(canvas, 1, 7, 32, 7, self._grey7)
-                # graphics.DrawLine(canvas, 1, 8, 32, 8, self._grey8)
-                # graphics.DrawLine(canvas, 1, 9, 32, 9, self._grey9)
-                # graphics.DrawLine(canvas, 1, 10, 32, 10, self._greyA)
-                # graphics.DrawLine(canvas, 1, 11, 32, 11, self._grey1)
-                # graphics.DrawLine(canvas, 1, 12, 32, 12, self._grey2)
-                # graphics.DrawLine(canvas, 1, 13, 32, 13, self._grey3)
-                # graphics.DrawLine(canvas, 1, 14, 32, 14, self._grey4)
-                # graphics.DrawLine(canvas, 1, 15, 32, 15, self._grey5)
-                # graphics.DrawLine(canvas, 1, 16, 32, 16, self._grey6)
-                # graphics.DrawLine(canvas, 1, 17, 32, 17, self._grey7)
-                # graphics.DrawLine(canvas, 1, 18, 32, 18, self._grey8)
-                # graphics.DrawLine(canvas, 1, 19, 32, 19, self._grey9)
-
-                # graphics.DrawLine(canvas, 1, 1, 32, 1, self._grey9)
-                # graphics.DrawLine(canvas, 1, 2, 32, 2, self._grey8)
-                # graphics.DrawLine(canvas, 1, 3, 32, 3, self._grey7)
-                # graphics.DrawLine(canvas, 1, 4, 32, 4, self._grey6)
-                # graphics.DrawLine(canvas, 1, 5, 32, 5, self._grey5)
-                # graphics.DrawLine(canvas, 1, 6, 32, 6, self._grey4)
-                # graphics.DrawLine(canvas, 1, 7, 32, 7, self._grey3)
-                # graphics.DrawLine(canvas, 1, 8, 32, 8, self._grey2)
-                # graphics.DrawLine(canvas, 1, 9, 32, 9, self._grey1)
-                # graphics.DrawLine(canvas, 1, 10, 32, 10, self._greyA)
-                # graphics.DrawLine(canvas, 1, 11, 32, 11, self._greyB)
-                # graphics.DrawLine(canvas, 1, 12, 32, 12, self._greyC)
-                # graphics.DrawLine(canvas, 1, 13, 32, 13, self._greyD)
-                # graphics.DrawLine(canvas, 1, 14, 32, 14, self._greyE)
-                # graphics.DrawLine(canvas, 1, 15, 32, 15, self._greyF)
-                # graphics.DrawLine(canvas, 1, 16, 32, 16, self._greyG)
-                # graphics.DrawLine(canvas, 1, 17, 32, 17, self._greyH)
-                # graphics.DrawLine(canvas, 1, 18, 32, 18, self._greyI)
-                # graphics.DrawLine(canvas, 1, 19, 32, 19, self._greyJ)
-
 
 
             elif cur_weather_str in ("Light Rain", "Light Rain Fog/Mist", "Light Rain and Breezy", "Rain Fog/Mist"):
@@ -233,6 +199,8 @@ class Display(threading.Thread):
 
         # graphics.DrawText(canvas, self._font_small, 2, 22, self._white, time.strftime("%a %b %-d"))
 
+# Temperature and "F" in Upper left hand corner
+
         #temp_str = "%3.0f" % self._weather.cur_temp
         #graphics.DrawText(canvas, self._font_tiny, -4, 5, self._blue, temp_str)
         #graphics.DrawText(canvas, self._font_tiny, 8, 5, self._green, "F")
@@ -240,7 +208,7 @@ class Display(threading.Thread):
 
 
 
-        # Gradient Backgrounds:
+# Gradient Backgrounds:
 
         #     graphics.DrawLine(canvas, 1, 1, 32, 1, self._greyJ)
         #     graphics.DrawLine(canvas, 1, 2, 32, 2, self._greyI)
