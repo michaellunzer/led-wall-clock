@@ -15,6 +15,8 @@ class Weather(object):
         self.cur_temp = 0.0
         self.high_temp = 0.0
         self.low_temp = 0.0
+        self.cur_weather_desc = ""
+        #self.wind_mph = 0.0
 
         self.update()
 
@@ -27,8 +29,12 @@ class Weather(object):
         weather_req = requests.get(WEATHER_URL, params={'stid': self._station})
         if weather_req.ok:
             weather = ElementTree.fromstring(weather_req.content)
-            self.cur_temp = float(weather.find("temp_f").text)
-            logging.info("Current temperature %1.1f" % self.cur_temp)
+            #self.cur_temp = float(weather.find("temp_f").text)
+            #logging.info("Current temperature %1.1f" % self.cur_temp)
+            #self.cur_temp = float(weather.find("wind_mph").text)
+            #logging.info("Current temperature %1.1f" % self.cur_temp)
+            self.cur_weather_desc = (weather.find("weather").text)
+            logging.info("Current Weather Description %s" % self.cur_weather_desc)
 
         forecast_req = requests.get(FORECAST_URL, params={'zipCodeList': self._zip, 'format': '24 hourly', 'numDays': 1})
         if forecast_req.ok:
