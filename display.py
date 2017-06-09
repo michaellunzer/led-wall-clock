@@ -63,9 +63,6 @@ class Display(threading.Thread):
             cur_weather_str = "%s" % self._weather.cur_weather_desc
             #graphics.DrawText(canvas, self._font_tiny, 0, 5, self._blue, cur_weather_str)
 
-
-
-
             if cur_weather_str == "sunny":
                 graphics.DrawCircle(canvas, 30, 1, 2, self._yellow)
                 graphics.DrawCircle(canvas, 30, 1, 1, self._orange)
@@ -143,7 +140,6 @@ class Display(threading.Thread):
                 graphics.DrawCircle(canvas, 27, 1, 1, self._white)
                 graphics.DrawCircle(canvas, 27, 1, 0, self._grey)       
 
-                
                 graphics.DrawCircle(canvas, 1, 1, 2, self._grey)
                 graphics.DrawCircle(canvas, 1, 1, 1, self._white)
                 graphics.DrawCircle(canvas, 1, 1, 0, self._grey)
@@ -157,7 +153,61 @@ class Display(threading.Thread):
                 # graphics.DrawCircle(canvas, 1, 1, 1, self._white)
                 graphics.DrawCircle(canvas, 9, 1, 1, self._white) 
 
+                # graphics.DrawCircle(canvas, 30, 3, 2, self._white)
+                # graphics.DrawCircle(canvas, 30, 3, 1, self._grey)
+                # graphics.DrawCircle(canvas, 30, 3, 0, self._white)   
 
+                # graphics.DrawCircle(canvas, 27, 1, 2, self._grey)
+                # graphics.DrawCircle(canvas, 27, 1, 1, self._white)
+                # graphics.DrawCircle(canvas, 27, 1, 0, self._grey)
+
+
+            elif cur_weather_str in ("Fog/Mist"):
+
+                graphics.DrawCircle(canvas, 30, 3, 2, self._white)
+                graphics.DrawCircle(canvas, 30, 3, 1, self._grey)
+                graphics.DrawCircle(canvas, 30, 3, 0, self._white)   
+
+                graphics.DrawCircle(canvas, 27, 1, 2, self._grey)
+                graphics.DrawCircle(canvas, 27, 1, 1, self._white)
+                graphics.DrawCircle(canvas, 27, 1, 0, self._grey)
+
+                graphics.DrawCircle(canvas, 30, 3, 2, self._white)
+                graphics.DrawCircle(canvas, 30, 3, 1, self._grey)
+                graphics.DrawCircle(canvas, 30, 3, 0, self._white)   
+
+                graphics.DrawCircle(canvas, 27, 1, 2, self._grey)
+                graphics.DrawCircle(canvas, 27, 1, 1, self._white)
+                graphics.DrawCircle(canvas, 27, 1, 0, self._grey) 
+
+                graphics.DrawCircle(canvas, 1, 1, 2, self._grey)
+                graphics.DrawCircle(canvas, 1, 1, 1, self._white)
+                graphics.DrawCircle(canvas, 1, 1, 0, self._grey)
+
+                graphics.DrawCircle(canvas, 11, 3, 2, self._grey)
+                graphics.DrawCircle(canvas, 11, 3, 1, self._white)
+                graphics.DrawCircle(canvas, 11, 3, 0, self._grey)
+
+                graphics.DrawCircle(canvas, 16, 3, 2, self._white)
+                graphics.DrawCircle(canvas, 16, 3, 1, self._grey)
+                graphics.DrawCircle(canvas, 16, 3, 0, self._white)
+
+                graphics.DrawCircle(canvas, 21, 1, 2, self._grey)
+                graphics.DrawCircle(canvas, 21, 1, 1, self._white)
+                graphics.DrawCircle(canvas, 21, 1, 0, self._grey)
+
+                graphics.DrawCircle(canvas, 26, 2, 2, self._grey)
+                graphics.DrawCircle(canvas, 26, 2, 1, self._white)
+                graphics.DrawCircle(canvas, 26, 2, 0, self._grey)
+
+                graphics.DrawCircle(canvas, 4, 3, 2, self._white)
+                graphics.DrawCircle(canvas, 4, 3, 1, self._grey)
+                # graphics.DrawCircle(canvas, 7, 1, 1, self._white)
+                # graphics.DrawCircle(canvas, 7, 1, 0, self._white)        
+                # graphics.DrawCircle(canvas, 5, 1, 2, self._white)
+                graphics.DrawCircle(canvas, 9, 1, 2, self._grey)
+                # graphics.DrawCircle(canvas, 1, 1, 1, self._white)
+                graphics.DrawCircle(canvas, 9, 1, 1, self._white) 
 
             elif cur_weather_str in ("Overcast", "Overcast and Breezy"):
                 graphics.DrawLine(canvas, 1, 1, 32, 1, self._grey1)
