@@ -231,25 +231,7 @@ class Display(threading.Thread):
         else:
             pass
 
-# CLOCK AREA
-
-        #original smaller format
-        # graphics.DrawText(canvas, self._font_small, 0, 7, self._red, time.strftime("%-2I:%M"))
-        # graphics.DrawText(canvas, self._font_small, 21, 13, self._white, time.strftime("%P"))
-
-        #large screen format
-        #this hides the leading 0 on numbers less than 10
-        if int(time.strftime("%-I")) < 10:
-            graphics.DrawText(canvas, self._font_large, 8, 16, self._green, time.strftime("%-I:%M"))
-            #graphics.DrawText(canvas, self._font_small, 21, 13, self._white, time.strftime("%P")) # AM / PM
-
-        else:
-            graphics.DrawText(canvas, self._font_large, 1, 16, self._green, time.strftime("%-I:%M"))
-
-
-        # graphics.DrawText(canvas, self._font_small, 2, 22, self._white, time.strftime("%a %b %-d"))
-
-# Temperature and "F" in Upper left hand corner
+            # Temperature and "F" in Upper left hand corner
 
         #temp_str = "%3.0f" % self._weather.cur_temp
         #graphics.DrawText(canvas, self._font_tiny, -4, 5, self._blue, temp_str)
@@ -259,6 +241,9 @@ class Display(threading.Thread):
 
 
 # Gradient Backgrounds:
+
+
+# light to dark
 
         #     graphics.DrawLine(canvas, 1, 1, 32, 1, self._greyJ)
         #     graphics.DrawLine(canvas, 1, 2, 32, 2, self._greyI)
@@ -280,25 +265,29 @@ class Display(threading.Thread):
         #     graphics.DrawLine(canvas, 1, 18, 32, 18, self._grey8)
         #     graphics.DrawLine(canvas, 1, 19, 32, 19, self._grey9)
 
-            # graphics.DrawLine(canvas, 1, 1, 32, 1, self._grey9)
-            # graphics.DrawLine(canvas, 1, 2, 32, 2, self._grey8)
-            # graphics.DrawLine(canvas, 1, 3, 32, 3, self._grey7)
-            # graphics.DrawLine(canvas, 1, 4, 32, 4, self._grey6)
-            # graphics.DrawLine(canvas, 1, 5, 32, 5, self._grey5)
-            # graphics.DrawLine(canvas, 1, 6, 32, 6, self._grey4)
-            # graphics.DrawLine(canvas, 1, 7, 32, 7, self._grey3)
-            # graphics.DrawLine(canvas, 1, 8, 32, 8, self._grey2)
-            # graphics.DrawLine(canvas, 1, 9, 32, 9, self._grey1)
-            # graphics.DrawLine(canvas, 1, 10, 32, 10, self._greyA)
-            # graphics.DrawLine(canvas, 1, 11, 32, 11, self._greyB)
-            # graphics.DrawLine(canvas, 1, 12, 32, 12, self._greyC)
-            # graphics.DrawLine(canvas, 1, 13, 32, 13, self._greyD)
-            # graphics.DrawLine(canvas, 1, 14, 32, 14, self._greyE)
-            # graphics.DrawLine(canvas, 1, 15, 32, 15, self._greyF)
-            # graphics.DrawLine(canvas, 1, 16, 32, 16, self._greyG)
-            # graphics.DrawLine(canvas, 1, 17, 32, 17, self._greyH)
-            # graphics.DrawLine(canvas, 1, 18, 32, 18, self._greyI)
-            # graphics.DrawLine(canvas, 1, 19, 32, 19, self._greyJ)
+
+
+            # dark to light
+
+        # graphics.DrawLine(canvas, 1, 1, 32, 1, self._grey9)
+        # graphics.DrawLine(canvas, 1, 2, 32, 2, self._grey8)
+        # graphics.DrawLine(canvas, 1, 3, 32, 3, self._grey7)
+        # graphics.DrawLine(canvas, 1, 4, 32, 4, self._grey6)
+        # graphics.DrawLine(canvas, 1, 5, 32, 5, self._grey5)
+        # graphics.DrawLine(canvas, 1, 6, 32, 6, self._grey4)
+        # graphics.DrawLine(canvas, 1, 7, 32, 7, self._grey3)
+        # graphics.DrawLine(canvas, 1, 8, 32, 8, self._grey2)
+        # graphics.DrawLine(canvas, 1, 9, 32, 9, self._grey1)
+        # graphics.DrawLine(canvas, 1, 10, 32, 10, self._greyA)
+        # graphics.DrawLine(canvas, 1, 11, 32, 11, self._greyB)
+        # graphics.DrawLine(canvas, 1, 12, 32, 12, self._greyC)
+        # graphics.DrawLine(canvas, 1, 13, 32, 13, self._greyD)
+        # graphics.DrawLine(canvas, 1, 14, 32, 14, self._greyE)
+        # graphics.DrawLine(canvas, 1, 15, 32, 15, self._greyF)
+        # graphics.DrawLine(canvas, 1, 16, 32, 16, self._greyG)
+        # graphics.DrawLine(canvas, 1, 17, 32, 17, self._greyH)
+        # graphics.DrawLine(canvas, 1, 18, 32, 18, self._greyI)
+        # graphics.DrawLine(canvas, 1, 19, 32, 19, self._greyJ)
 
 
             #TEMPERATURE STRINGS
@@ -313,6 +302,26 @@ class Display(threading.Thread):
         # low_str = "%3.0f" % self._weather.low_temp
         # graphics.DrawText(canvas, self._font_small, 43, 31, self._white, low_str)
         # graphics.DrawText(canvas, self._font_tiny, 61, 31, self._blue, "F")
+
+
+# CLOCK AREA
+
+        #original smaller format
+        # graphics.DrawText(canvas, self._font_small, 0, 7, self._red, time.strftime("%-2I:%M"))
+        # graphics.DrawText(canvas, self._font_small, 21, 13, self._white, time.strftime("%P"))
+
+        #large screen format
+        #this hides the leading 0 on numbers less than 10
+        if int(time.strftime("%-I")) < 10:
+            graphics.DrawText(canvas, self._font_large, 8, 16, self._green, time.strftime("%-I:%M"))
+            #graphics.DrawText(canvas, self._font_small, 21, 13, self._white, time.strftime("%P")) # AM / PM
+
+        else:
+            graphics.DrawText(canvas, self._font_large, 1, 16, self._green, time.strftime("%-I:%M"))
+
+
+        # graphics.DrawText(canvas, self._font_small, 2, 22, self._white, time.strftime("%a %b %-d"))
+
 
     def run(self):
         canvas = self._matrix.CreateFrameCanvas()
