@@ -1,7 +1,7 @@
 # led-wall-clock
 A fancy RGB LED matrix wall clock controlled by a Raspberry Pi.
 
-![picture](https://cloud.githubusercontent.com/assets/8151645/14007063/6deb76d6-f149-11e5-8a30-1efc0c79715d.jpg)
+![picture](http://michaellunzer.com/img/lunzpi_finished2.jpg)
 
 # Parts List
 - [https://www.adafruit.com/product/420](https://www.adafruit.com/product/420)
