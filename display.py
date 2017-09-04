@@ -128,8 +128,6 @@ class Display(threading.Thread):
 
 
 
-
-
             elif cur_weather_str in ("Mostly Cloudy", "Mostly Cloudy and Breezy", "Mostly Cloudy and Windy", "Partly Cloudy and Windy", "Mostly Cloudy with Haze"):
 
                 graphics.DrawCircle(canvas, 30, 3, 2, self._white)
@@ -315,10 +313,8 @@ class Display(threading.Thread):
         if int(time.strftime("%-I")) < 10:
             graphics.DrawText(canvas, self._font_large, 8, 16, self._red, time.strftime("%-I:%M"))
             #graphics.DrawText(canvas, self._font_small, 21, 13, self._white, time.strftime("%P")) # AM / PM
-
         else:
             graphics.DrawText(canvas, self._font_large, 1, 16, self._red, time.strftime("%-I:%M"))
-
 
         # graphics.DrawText(canvas, self._font_small, 2, 22, self._white, time.strftime("%a %b %-d"))
 
